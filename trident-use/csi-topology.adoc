@@ -158,16 +158,16 @@ name: netapp-san-us-east1
 provisioner: csi.trident.netapp.io
 volumeBindingMode: WaitForFirstConsumer
 allowedTopologies:
-- matchLabelExpressions:
-- key: topology.kubernetes.io/zone
-  values:
-  - us-east1-a
-  - us-east1-b
-- key: topology.kubernetes.io/region
-  values:
-  - us-east1
+  - matchLabelExpressions:
+    - key: topology.kubernetes.io/zone
+      values:
+        - us-east1-a
+        - us-east1-b
+    - key: topology.kubernetes.io/region
+      values:
+        - us-east1
 parameters:
-  fsType: "ext4"
+  fsType: ext4
 ----
 Na definição StorageClass fornecida acima, `volumeBindingMode` está definida como `WaitForFirstConsumer`. Os PVCs solicitados com este StorageClass não serão utilizados até que sejam referenciados em um pod. E, `allowedTopologies` fornece as zonas e a região a serem usadas. O `netapp-san-us-east1` StorageClass criará PVCs no `san-backend-us-east1` back-end definido acima.
 

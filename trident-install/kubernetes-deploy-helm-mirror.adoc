@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: trident-get-started/kubernetes-deploy-helm-mirror.html 
+permalink: trident-install/kubernetes-deploy-helm-mirror.html 
 keywords: deploy, astra trident, operator, helm, helm chart, configuration, values, offline, air gap, gap, registry 
 summary: Você pode implantar o operador Trident e instalar o Astra Trident usando o Helm. Este processo aplica-se a instalações onde as imagens de contentor exigidas pelo Astra Trident são armazenadas em um Registro privado. 
 ---
@@ -16,6 +16,7 @@ Você pode implantar o operador Trident e instalar o Astra Trident usando o Helm
 
 
 
+[[critical-information-about-astra-trident-23-10]]
 == Informações críticas sobre o Astra Trident 23,10
 
 *Você deve ler as seguintes informações críticas sobre o Astra Trident.*
@@ -33,14 +34,15 @@ O uso de configuração não multipathing ou o uso `find_multipaths: yes` de ou 
 ====
 
 
+[[deploy-the-trident-operator-and-install-astra-trident-using-helm]]
 == Implante o operador Trident e instale o Astra Trident usando o Helm
 
 Usando o Tridentlink:https://artifacthub.io/packages/helm/netapp-trident/trident-operator["Carta do leme"^], você pode implantar o operador Trident e instalar o Trident em uma etapa.
 
-Revise link:../trident-get-started/kubernetes-deploy.html["a visão geral da instalação"] para garantir que você atendeu aos pré-requisitos de instalação e selecionou a opção de instalação correta para o seu ambiente.
+Revise link:kubernetes-deploy.html["a visão geral da instalação"] para garantir que você atendeu aos pré-requisitos de instalação e selecionou a opção de instalação correta para o seu ambiente.
 
 .Antes de começar
-Além do link:../trident-get-started/kubernetes-deploy.html#before-you-deploy["pré-requisitos de implantação"] que você precisalink:https://v3.helm.sh/["Helm versão 3"^].
+Além do link:kubernetes-deploy.html#before-you-begin["pré-requisitos de implantação"] você precisa de link:https://v3.helm.sh/["Helm versão 3"^].
 
 .Passos
 . Adicione o repositório Astra Trident Helm:
@@ -80,6 +82,7 @@ Você pode usar `helm list` para revisar detalhes de instalação, como nome, na
 
 
 
+[[pass-configuration-data-during-install]]
 == Passe os dados de configuração durante a instalação
 
 Há duas maneiras de passar dados de configuração durante a instalação:
@@ -106,6 +109,7 @@ helm install <name> netapp-trident/trident-operator --version 23.10.0  --create-
 ----
 
 
+[[configuration-options]]
 == Opções de configuração
 
 Esta tabela e o `values.yaml` arquivo, que faz parte do gráfico Helm, fornecem a lista de chaves e seus valores padrão.
@@ -130,16 +134,16 @@ Esta tabela e o `values.yaml` arquivo, que faz parte do gráfico Helm, fornecem 
 | `affinity` | Afinidade para atribuição de pod |  
 
 
-| `tridentControllerPluginNodeSelector` | Seletores de nós adicionais para pods. <<Compreensão dos pods dos nós e dos pods do controlador>>Consulte para obter detalhes. |  
+| `tridentControllerPluginNodeSelector` | Seletores de nós adicionais para pods. Consulte link:../trident-get-started/architecture.html#understanding-controller-pods-and-node-pods["Compreensão dos pods dos nós e dos pods do controlador"] para obter detalhes. |  
 
 
-| `tridentControllerPluginTolerations` | Substitui as tolerâncias do Kubernetes para pods. <<Compreensão dos pods dos nós e dos pods do controlador>>Consulte para obter detalhes. |  
+| `tridentControllerPluginTolerations` | Substitui as tolerâncias do Kubernetes para pods. Consulte link:../trident-get-started/architecture.html#understanding-controller-pods-and-node-pods["Compreensão dos pods dos nós e dos pods do controlador"] para obter detalhes. |  
 
 
-| `tridentNodePluginNodeSelector` | Seletores de nós adicionais para pods. <<Compreensão dos pods dos nós e dos pods do controlador>>Consulte para obter detalhes. |  
+| `tridentNodePluginNodeSelector` | Seletores de nós adicionais para pods. Consulte link:../trident-get-started/architecture.html#understanding-controller-pods-and-node-pods["Compreensão dos pods dos nós e dos pods do controlador"] para obter detalhes. |  
 
 
-| `tridentNodePluginTolerations` | Substitui as tolerâncias do Kubernetes para pods. <<Compreensão dos pods dos nós e dos pods do controlador>>Consulte para obter detalhes. |  
+| `tridentNodePluginTolerations` | Substitui as tolerâncias do Kubernetes para pods. Consulte link:../trident-get-started/architecture.html#understanding-controller-pods-and-node-pods["Compreensão dos pods dos nós e dos pods do controlador"] para obter detalhes. |  
 
 
 | `imageRegistry` | Identifica o registo para as `trident-operator`, `trident`e outras imagens. Deixe vazio para aceitar o padrão. | "" 
@@ -221,4 +225,5 @@ Esta tabela e o `values.yaml` arquivo, que faz parte do gráfico Helm, fornecem 
 |===
 
 
+[[whats-next]]
 == O que vem a seguir

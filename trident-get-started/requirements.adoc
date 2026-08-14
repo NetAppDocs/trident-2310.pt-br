@@ -16,6 +16,7 @@ Antes de instalar o Astra Trident, você deve analisar esses requisitos gerais d
 
 
 
+[[critical-information-about-astra-trident]]
 == Informações essenciais sobre o Astra Trident
 
 *Você deve ler as seguintes informações críticas sobre o Astra Trident.*
@@ -33,6 +34,7 @@ O uso de configuração não multipathing ou o uso `find_multipaths: yes` de ou 
 ====
 
 
+[[supported-frontends-orchestrators]]
 == Frontens suportados (orquestradores)
 
 O Astra Trident é compatível com vários mecanismos de contêiner e orquestradores, incluindo os seguintes:
@@ -57,6 +59,7 @@ WARNING: Antes de atualizar um cluster do Kubernetes do 1,24 para o 1,25 ou post
 
 
 
+[[supported-backends-storage]]
 == Backends suportados (armazenamento)
 
 Para usar o Astra Trident, você precisa de um ou mais dos seguintes back-ends compatíveis:
@@ -72,6 +75,7 @@ Para usar o Astra Trident, você precisa de um ou mais dos seguintes back-ends c
 
 
 
+[[feature-requirements]]
 == Requisitos de recursos
 
 A tabela abaixo resume os recursos disponíveis com esta versão do Astra Trident e as versões do Kubernetes compatíveis.
@@ -138,6 +142,7 @@ Não
 |===
 
 
+[[tested-host-operating-systems]]
 == Sistemas operacionais de host testados
 
 Embora o Astra Trident não seja oficialmente compatível com sistemas operacionais específicos, sabe-se que os seguintes itens funcionam:
@@ -158,6 +163,7 @@ O `tridentctl` utilitário também é executado em qualquer uma dessas distribui
 
 
 
+[[host-configuration]]
 == Configuração de host
 
 Todos os nós de trabalho no cluster do Kubernetes precisam ser capazes de montar os volumes provisionados para os pods. Para preparar os nós de trabalho, é necessário instalar ferramentas NFS, iSCSI ou NVMe com base na seleção de driver.
@@ -166,6 +172,7 @@ link:../trident-use/worker-node-prep.html["Prepare o nó de trabalho"]
 
 
 
+[[storage-system-configuration]]
 == Configuração do sistema de storage
 
 O Astra Trident pode exigir alterações em um sistema de storage antes que uma configuração de back-end o use.
@@ -174,6 +181,7 @@ link:../trident-use/backends.html["Configurar backends"]
 
 
 
+[[astra-trident-ports]]
 == Portas Astra Trident
 
 O Astra Trident requer acesso a portas específicas para comunicação.
@@ -182,6 +190,7 @@ link:../trident-reference/ports.html["Portas Astra Trident"]
 
 
 
+[[container-images-and-corresponding-kubernetes-versions]]
 == Imagens de contêineres e versões correspondentes do Kubernetes
 
 Para instalações com conexão de ar, a lista a seguir é uma referência das imagens de contêiner necessárias para instalar o Astra Trident. Use o `tridentctl images` comando para verificar a lista de imagens de contentor necessárias.

@@ -16,6 +16,7 @@ Saiba como configurar o NetApp Cloud Volumes Service para Google Cloud como back
 
 
 
+[[google-cloud-driver-details]]
 == Detalhes do driver do Google Cloud
 
 O Astra Trident fornece ao `gcp-cvs` condutor a comunicação com o cluster. Os modos de acesso suportados são: _ReadWriteOnce_ (RWO), _ReadOnlyMuy_ (ROX), _ReadWriteMany_ (RWX), _ReadWriteOncePod_ (RWOP).
@@ -37,18 +38,19 @@ RWO, ROX, RWX, RWOP
 |===
 
 
+[[learn-about-astra-trident-support-for-cloud-volumes-service-for-google-cloud]]
 == Saiba mais sobre o suporte ao Astra Trident para Cloud Volumes Service para Google Cloud
 
-O Astra Trident pode criar volumes Cloud Volumes Service em um de dois link:https://cloud.google.com/architecture/partners/netapp-cloud-volumes/service-types["tipos de serviço"^]:
+O Astra Trident pode criar volumes do Cloud Volumes Service de duas link:https://docs.cloud.google.com/netapp/volumes/docs/discover/overview["tipos de serviço"^]:
 
-* *CVS-Performance*: O tipo de serviço padrão Astra Trident. Esse tipo de serviço otimizado para performance é mais adequado para workloads de produção que valorizam a performance. O tipo de serviço CVS-Performance é uma opção de hardware que suporta volumes com um tamanho mínimo de 100 GiB. Você pode escolher um dos link:https://cloud.google.com/architecture/partners/netapp-cloud-volumes/service-levels#service_levels_for_the_cvs-performance_service_type["três níveis de serviço"^]:
+* *CVS-Performance*: O tipo de serviço padrão do Astra Trident. Este tipo de serviço otimizado para desempenho é ideal para cargas de trabalho de produção que valorizam o desempenho. O tipo de serviço CVS-Performance é uma opção de hardware que suporta volumes com tamanho mínimo de 100 GiB. Você pode escolher uma das seguintes opções link:https://docs.cloud.google.com/netapp/volumes/docs/discover/overview["três níveis de serviço"^]:
 +
 ** `standard`
 ** `premium`
 ** `extreme`
 
 
-* *CVS*: O tipo de serviço CVS fornece alta disponibilidade por zonas com níveis de desempenho limitados a moderados. O tipo de serviço CVS é uma opção de software que usa pools de armazenamento para dar suporte a volumes tão pequenos quanto 1 GiB. O pool de storage pode conter até 50 volumes em que todos os volumes compartilham a capacidade e a performance do pool. Você pode escolher um dos link:https://cloud.google.com/architecture/partners/netapp-cloud-volumes/service-levels#service_levels_for_the_cvs_service_type["dois níveis de serviço"^]:
+* *CVS*: O tipo de serviço CVS oferece alta disponibilidade zonal com níveis de desempenho limitados a moderados. O tipo de serviço CVS é uma opção de software que utiliza pool de storage para suportar volumes a partir de 1 GiB. O pool de storage pode conter até 50 volumes, onde todos os volumes compartilham a capacidade e o desempenho do pool. Você pode escolher uma das seguintes opções link:https://docs.cloud.google.com/netapp/volumes/docs/discover/overview["dois níveis de serviço"^]:
 +
 ** `standardsw`
 ** `zoneredundantstandardsw`
@@ -57,7 +59,7 @@ O Astra Trident pode criar volumes Cloud Volumes Service em um de dois link:http
 
 
 .O que você vai precisar
-Para configurar e usar o https://cloud.netapp.com/cloud-volumes-service-for-gcp?utm_source=NetAppTrident_ReadTheDocs&utm_campaign=Trident["Cloud Volumes Service para Google Cloud"^] back-end, você precisa do seguinte:
+Para configurar e usar o  https://www.netapp.com/google-cloud/netapp-volumes/["Cloud Volumes Service para Google Cloud"^]backend, você precisa do seguinte:
 
 * Uma conta do Google Cloud configurada com o NetApp Cloud Volumes Service
 * Número do projeto da sua conta do Google Cloud
@@ -67,6 +69,7 @@ Para configurar e usar o https://cloud.netapp.com/cloud-volumes-service-for-gcp?
 
 
 
+[[backend-configuration-options]]
 == Opções de configuração de back-end
 
 Cada back-end provisiona volumes em uma única região do Google Cloud. Para criar volumes em outras regiões, você pode definir backends adicionais.
@@ -129,6 +132,7 @@ Cada back-end provisiona volumes em uma única região do Google Cloud. Para cri
 |===
 
 
+[[volume-provisioning-options]]
 == Opções de provisionamento de volume
 
 Você pode controlar o provisionamento de volume padrão `defaults` na seção do arquivo de configuração.
@@ -151,6 +155,7 @@ Você pode controlar o provisionamento de volume padrão `defaults` na seção d
 |===
 
 
+[[cvs-performance-service-type-examples]]
 == Exemplos de tipos de serviço CVS-Performance
 
 Os exemplos a seguir fornecem exemplos de configurações para o tipo de serviço CVS-Performance.
@@ -364,6 +369,7 @@ storage:
 ====
 
 
+[[storage-class-definitions]]
 === Definições de classe de armazenamento
 
 As seguintes definições do StorageClass se aplicam ao exemplo de configuração de pool virtual. Usando `parameters.selector`o , você pode especificar para cada StorageClass o pool virtual usado para hospedar um volume. O volume terá os aspetos definidos no pool escolhido.
@@ -434,6 +440,7 @@ allowVolumeExpansion: true
 
 
 
+[[cvs-service-type-examples]]
 == Exemplos de tipo de serviço CVS
 
 Os exemplos a seguir fornecem exemplos de configurações para o tipo de serviço CVS.
@@ -556,6 +563,7 @@ serviceLevel: Standardsw
 ====
 
 
+[[whats-next]]
 == O que se segue?
 
 Depois de criar o arquivo de configuração de back-end, execute o seguinte comando:
